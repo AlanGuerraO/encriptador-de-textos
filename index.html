@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Textos</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="assets/icono.png" type="image/x-icon">
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header>
+        <img src="assets/Logo-alura.png" alt="Logo de la plataforma Alura Latam">
+    </header>
+    <main>
+        <section id="contenido">
+            <div class="contenido__datosIngresados">
+                <div class="contenido__datosIngresados-textarea">
+                    <textarea id="textareaContenidoIngresado" placeholder="Ingresa el texto aqui"></textarea>
+                </div>
+                <div class="contenido__datosIngresados-advertencia">
+                    <img src="assets/icono-advertencia.png" alt="Icono de un aviso de advertencia">
+                    <p>Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="contenido__datosIngresados-botones">
+                    <button onclick="botonEncriptar()">Encriptar</button>
+                    <button onclick="botonDesencriptar()">Desencriptar</button>
+                </div>
+            </div>
+            <div class="contenido__textoEncriptado">
+                <img src="assets/Muñeco.png" alt="Muñeco buscando con una lupa">
+                <p>Ningún mensaje fue encontrado</p>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+        </section>
+    </main>
     <footer></footer>
 </body>
 </html>
