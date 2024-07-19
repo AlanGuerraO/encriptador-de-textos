@@ -1,59 +1,80 @@
 function botonEncriptar() {
-    let inputText = document.getElementById("inputContenidoIngresado").value.trim();
-    let outputText = "";
+    const textoIngresado = document.getElementById("inputContenidoIngresado").value.trim();
+    let textoEncriptado = "";
 
-    for (let i = 0; i < inputText.length; i++) {
-        switch (inputText[i]) {
+    // Encriptar el texto ingresado
+    for (let i = 0; i < textoIngresado.length; i++) {
+        switch (textoIngresado[i]) {
             case "e":
-                outputText += "enter";
+                textoEncriptado += "enter";
                 break;
             case "i":
-                outputText += "imes";
+                textoEncriptado += "imes";
                 break;
             case "a":
-                outputText += "ai";
+                textoEncriptado += "ai";
                 break;
             case "o":
-                outputText += "ober";
+                textoEncriptado += "ober";
                 break;
             case "u":
-                outputText += "ufat";
+                textoEncriptado += "ufat";
                 break;
             default:
-                outputText += inputText[i];
+                textoEncriptado += textoIngresado[i];
         }
     }
 
-    document.getElementById("texto-salida").innerHTML = `<p>${outputText}</p>`;
+    // Actualizar el contenido del div de salida con el texto encriptado
+    actualizarSalida(textoEncriptado);
 }
 
 function botonDesencriptar() {
-    let inputText = document.getElementById("inputContenidoIngresado").value.trim();
-    let outputText = "";
+    let textoIngresado = document.getElementById("inputContenidoIngresado").value.trim();
+    let textoDesencriptado = "";
 
-  // Reverse the encryption process
-    while (inputText.length > 0) {
-        if (inputText.startsWith("enter")) {
-        outputText += "e";
-        inputText = inputText.slice(5); // Remove 'enter'
-        } else if (inputText.startsWith("imes")) {
-        outputText += "i";
-        inputText = inputText.slice(4); // Remove 'imes'
-        } else if (inputText.startsWith("ai")) {
-        outputText += "a";
-        inputText = inputText.slice(2); // Remove 'ai'
-        } else if (inputText.startsWith("ober")) {
-        outputText += "o";
-        inputText = inputText.slice(4); // Remove 'ober'
-        } else if (inputText.startsWith("ufat")) {
-        outputText += "u";
-        inputText = inputText.slice(4); // Remove 'ufat'
+    // Desencriptar el texto ingresado
+    while (textoIngresado.length > 0) {
+        if (textoIngresado.startsWith("enter")) {
+            textoDesencriptado += "e";
+            textoIngresado = textoIngresado.slice(5); // Elimina 'enter'
+        } else if (textoIngresado.startsWith("imes")) {
+            textoDesencriptado += "i";
+            textoIngresado = textoIngresado.slice(4); // Elimina 'imes'
+        } else if (textoIngresado.startsWith("ai")) {
+            textoDesencriptado += "a";
+            textoIngresado = textoIngresado.slice(2); // Elimina 'ai'
+        } else if (textoIngresado.startsWith("ober")) {
+            textoDesencriptado += "o";
+            textoIngresado = textoIngresado.slice(4); // Elimina 'ober'
+        } else if (textoIngresado.startsWith("ufat")) {
+            textoDesencriptado += "u";
+            textoIngresado = textoIngresado.slice(4); // Elimina 'ufat'
         } else {
-        // If none of the above, append the character and move to the next
-        outputText += inputText[0];
-        inputText = inputText.slice(1);
+            textoDesencriptado += textoIngresado[0];
+            textoIngresado = textoIngresado.slice(1);
         }
     }
 
-    document.getElementById("texto-salida").innerHTML = `<p>${outputText}</p>`;
+    // Actualizar el contenido del div de salida con el texto desencriptado
+    actualizarSalida(textoDesencriptado);
+}
+
+function actualizarSalida(texto) {
+    const divSalida = document.getElementById("texto-salida");
+    divSalida.innerHTML = `
+        <p>${texto}</p>
+        <button class="contenido__texto-salida-boton" onclick="copiarTexto()">Copiar</button>
+    `;
+}
+
+function copiarTexto() {
+    const textoSalida = document.querySelector("#texto-salida p").innerText;
+    navigator.clipboard.writeText(textoSalida)
+        .then(() => {
+            alert("Texto copiado al portapapeles");
+        })
+        .catch(err => {
+            console.error("Error al copiar el texto: ", err);
+        });
 }
