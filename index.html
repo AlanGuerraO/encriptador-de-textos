@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es-mx">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Textos</title>
+    <meta name="description" content="Aplicación web para encriptar y desencriptar textos">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="assets/icono.png" type="image/x-icon">
 </head>
@@ -14,20 +15,22 @@
     <main>
         <section id="contenido">
             <div class="contenido__datos-entrada">
-                <input class="contenido__datos-entrada-input" type="text" id="inputContenidoIngresado" placeholder="Ingresa el texto aqui">
+                <textarea class="contenido__datos-entrada-input" type="text" id="inputContenidoIngresado" placeholder="Ingresa el texto aqui..."></textarea>
                 <div class="contenido__datos-entrada-advertencia">
-                    <img class="contenido__datos-entrada-imgAdvertencia" src="assets/icono-advertencia.png" alt="Icono de un aviso de advertencia">
+                    <img class="contenido__datos-entrada-imgAdvertencia" src="assets/icono-advertencia.png" alt="Icono de advertencia">
                     <p>Solo letras minúsculas y sin acentos</p>
                 </div>
                 <div class="contenido__datos-entrada-botones">
-                    <button onclick="botonEncriptar()">Encriptar</button>
-                    <button onclick="botonDesencriptar()">Desencriptar</button>
+                    <button class="contenido__datos-entrada-boton1" onclick="botonEncriptar()">Encriptar</button>
+                    <button class="contenido__datos-entrada-boton2" onclick="botonDesencriptar()">Desencriptar</button>
                 </div>
             </div>
             <div class="contenido__texto-salida">
                 <img class="contenido__texto-salida-imagen" src="assets/Muñeco.png" alt="Muñeco buscando con una lupa">
-                <p class="contenido__texto-salida-parrafo1">Ningún mensaje fue encontrado</p>
-                <p class="contenido__texto-salida-parrafo2">Ingresa el texto que desees encriptar o desencriptar.</p>
+                <div class="contenido__texto-salida-parrafos">
+                    <p class="contenido__texto-salida-parrafo1">Ningún mensaje fue encontrado</p>
+                    <p class="contenido__texto-salida-parrafo2">Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
             </div>
         </section>
     </main>
