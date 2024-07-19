@@ -107,6 +107,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
+    overflow-wrap: break-word; /* Las palabras largas se dividirán y ajustarán */
 }
 
 .contenido__texto-salida p {
