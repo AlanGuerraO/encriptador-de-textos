@@ -2,8 +2,9 @@ function botonEncriptar() {
     const textoIngresado = document.getElementById("inputContenidoIngresado").value.trim();
     let textoEncriptado = "";
 
-    // Encriptar el texto ingresado
+    // Encripta el texto ingresado
     for (let i = 0; i < textoIngresado.length; i++) {
+        // switch que dependiendo de la letra la cambia  ala palabra correspondiente
         switch (textoIngresado[i]) {
             case "e":
                 textoEncriptado += "enter";
@@ -25,7 +26,7 @@ function botonEncriptar() {
         }
     }
 
-    // Actualizar el contenido del div de salida con el texto encriptado
+    // funcion que actualiza el contenido del div de salida con el texto encriptado
     actualizarSalida(textoEncriptado);
 }
 
@@ -56,23 +57,25 @@ function botonDesencriptar() {
         }
     }
 
-    // Actualizar el contenido del div de salida con el texto desencriptado
+    // funcion que actualiza el contenido del div de salida con el texto desencriptado
     actualizarSalida(textoDesencriptado);
 }
 
 function actualizarSalida(texto) {
     const divSalida = document.getElementById("texto-salida");
+    // Implementacion del boton de copiar al codigo html
     divSalida.innerHTML = `
         <p>${texto}</p>
         <button class="contenido__texto-salida-boton" onclick="copiarTexto()">Copiar</button>
     `;
 }
 
+// Desarrollo para la funcionalidad de la funcion, para la ejecucion de copiar
 function copiarTexto() {
     const textoSalida = document.querySelector("#texto-salida p").innerText;
     navigator.clipboard.writeText(textoSalida)
         .then(() => {
-            alert("Texto copiado al portapapeles");
+            alert("Texto copiado al portapapeles"); // mensaje que se muestra al copiar el texto
         })
         .catch(err => {
             console.error("Error al copiar el texto: ", err);
