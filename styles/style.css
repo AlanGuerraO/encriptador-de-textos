@@ -37,8 +37,9 @@ body {
 /* Declaracion de los estilos del contenido de entrada */
 #contenido {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row; /* Cambiar de columna a fila */
+    justify-content: center; /* Centrar el contenido */
+    gap: 80px; /* Espacio entre los elementos */
     padding-bottom: 1rem;
 }
 
@@ -109,8 +110,8 @@ body {
 .contenido__texto-salida {
     box-sizing: border-box;
     background: var(--color-secundario);
-    width: 100%;
-    max-width: 25rem;
+    width: 25rem; /* Ajustado */
+    height: 59rem; /* Ajustado */
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
@@ -118,7 +119,6 @@ body {
     gap: 2rem;
     overflow-wrap: break-word; /* Las palabras largas se dividirán y ajustarán */
     padding: 1rem;
-    height: auto; /* Ajuste automático de altura */
 }
 
 .contenido__texto-salida p {
