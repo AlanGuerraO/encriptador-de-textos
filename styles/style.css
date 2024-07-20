@@ -199,3 +199,41 @@ body {
         display: none;
     }
 }
+
+/* Telefonos celulares */
+@media (max-width: 450px) {
+    .header {
+        padding: 40px;
+        text-align: center;
+    }
+
+    #contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenido__datos-entrada {
+        width: 80%;
+    }
+
+    .contenido__datos-entrada-input {
+        width: auto;
+        height: 18rem;
+    }
+
+    .contenido__datos-entrada-botones {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenido__texto-salida {
+        width: 100%;
+        max-width: 21rem;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .contenido__texto-salida-imagen {
+        display: none;
+    }
+}
